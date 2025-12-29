@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Appartement à louer — [Quartier/Ville]</title>
+  <meta name="description" content="Appartement à louer à [Ville] — photos, équipements, localisation, contact." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <h1>Appartement à louer — [Quartier/Ville]</h1>
+      <p class="hero__subtitle">T2 / 45 m² • Lumineux • Proche métro • [Prix] €/mois</p>
+      <div class="hero__actions">
+        <a class="btn" href="#photos">Voir les photos</a>
+        <a class="btn btn--secondary" href="#contact">Contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="infos">
+      <h2>Infos clés</h2>
+      <ul class="grid">
+        <li><strong>Surface</strong><span>45 m²</span></li>
+        <li><strong>Pièces</strong><span>2</span></li>
+        <li><strong>Meublé</strong><span>Oui / Non</span></li>
+        <li><strong>Loyer</strong><span>[X] €</span></li>
+        <li><strong>Charges</strong><span>[X] €</span></li>
+        <li><strong>Disponibilité</strong><span>[Date]</span></li>
+      </ul>
+    </section>
+
+    <section class="card" id="description">
+      <h2>Description</h2>
+      <p>
+        Décris l’appartement en 5–8 lignes : luminosité, étage, équipements, isolation,
+        transports, commerces, calme, etc.
+      </p>
+      <p class="muted">
+        Conditions : garantie, dossier, animaux, bail, etc.
+      </p>
+    </section>
+
+    <section class="card" id="photos">
+      <h2>Photos</h2>
+      <div class="gallery">
+        <!-- Mets tes photos dans un dossier "photos/" -->
+        <img src="photos/01-salon.jpg" alt="Salon" loading="lazy">
+        <img src="photos/02-cuisine.jpg" alt="Cuisine" loading="lazy">
+        <img src="photos/03-chambre.jpg" alt="Chambre" loading="lazy">
+        <img src="photos/04-sdb.jpg" alt="Salle de bain" loading="lazy">
+      </div>
+      <p class="muted">Astuce : renomme tes images 01-, 02-, 03-… pour garder l’ordre.</p>
+    </section>
+
+    <section class="card" id="localisation">
+      <h2>Localisation</h2>
+      <p>[Quartier], [Ville]. À X min de [métro/tram], proche [parc/commerces].</p>
+
+      <!-- Google Maps embed: cherche "partager" -> "intégrer une carte" -->
+      <div class="map">
+        <iframe
+          title="Carte"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=..."
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>Contact</h2>
+      <p>Pour une visite : <strong>[Ton prénom]</strong></p>
+
+      <div class="contact">
+        <a class="btn" href="mailto:tonmail@example.com?subject=Visite%20appartement">Email</a>
+        <a class="btn btn--secondary" href="tel:+32123456789">Téléphone</a>
+        <a class="btn btn--secondary" href="https://wa.me/32XXXXXXXXX">WhatsApp</a>
+      </div>
+
+      <p class="muted">
+        (Conseil) Évite d’afficher ton adresse complète en public. Donne le numéro exact après un 1er contact.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> — Appartement à louer</small>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
