@@ -117,18 +117,20 @@ h2{ margin: 0 0 12px; font-size: 20px; }
 
 .lightbox__img{
   max-width: min(100%, 1100px);
-  max-height: 85vh;
+  max-height: calc(100vh - 96px);
   width: auto;
   height: auto;
   border-radius: 14px;
   border: 1px solid #ffffff22;
   box-shadow: 0 20px 60px #00000066;
+  cursor: zoom-out;
 }
 
 .lightbox__close{
   position: fixed;
   top: 10px;
   right: 14px;
+  z-index: 1;
   width: 44px;
   height: 44px;
   border-radius: 999px;

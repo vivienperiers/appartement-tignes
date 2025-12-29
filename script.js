@@ -4,9 +4,8 @@
   const img = document.getElementById("lightboxImg");
   const closeBtn = document.getElementById("lightboxClose");
 
-  // Si le HTML de la lightbox n'existe pas, on sort proprement
   if (!lightbox || !img || !closeBtn) {
-    console.warn("Lightbox: éléments HTML manquants (#lightbox, #lightboxImg, #lightboxClose)");
+    console.warn("Lightbox: missing HTML elements (#lightbox, #lightboxImg, #lightboxClose)");
     return;
   }
 
@@ -27,9 +26,13 @@
 
   document.querySelectorAll(".gallery img").forEach((el) => {
     el.style.cursor = "zoom-in";
-    el.addEventListener("click", () => openLightbox(el.src, el.alt));
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      openLightbox(el.currentSrc || el.src, el.alt);
+    });
   });
 
+  img.addEventListener("click", closeLightbox);
   closeBtn.addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
