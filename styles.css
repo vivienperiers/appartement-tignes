@@ -101,3 +101,41 @@ h2{ margin: 0 0 12px; font-size: 20px; }
   .gallery{ grid-template-columns: 1fr; }
   .gallery img{ height: 220px; }
 }
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.85);
+  padding: 18px;
+  z-index: 9999;
+}
+
+.lightbox.is-open{ display:flex; }
+
+.lightbox__img{
+  max-width: min(100%, 1100px);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #ffffff22;
+  box-shadow: 0 20px 60px #00000066;
+}
+
+.lightbox__close{
+  position: fixed;
+  top: 10px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid #ffffff22;
+  background: #ffffff12;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
