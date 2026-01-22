@@ -26,19 +26,19 @@
     <section class="card" id="info">
       <h2 data-i18n="section_info">Key info</h2>
       <ul class="grid">
-        <li><strong data-i18n="label_area">Area</strong><span>70 m2</span></li>
-        <li><strong data-i18n="label_rooms">Rooms</strong><span>4</span></li>
-        <li><strong data-i18n="label_furnished">Furnished</strong><span data-i18n="value_yes">Yes</span></li>
-        <li><strong data-i18n="label_rent">Rent</strong><span>4500 €</span></li>
-        <li><strong data-i18n="label_utilities">Utilities</strong><span>300 €</span></li>
-        <li><strong data-i18n="label_availability">Availability</strong><span data-i18n="value_now">Now</span></li>
+        <li><strong data-i18n="label_area">Area</strong><span>75 m2</span></li>
+        <li><strong data-i18n="label_rooms">Bedrooms</strong><span>3</span></li>
+        <li><strong data-i18n="label_furnished">Furnished</strong><span data-i18n="places">8</span></li>
+        <li><strong data-i18n="label_rent">bathroom</strong><span>2</span></li>
+        <li><strong data-i18n="outside">outside</strong><span>8 m2</span></li>
+        <li><strong data-i18n="price">Availability</strong><span data-i18n="value_price">Now</span></li>
       </ul>
     </section>
 
     <section class="card" id="description">
       <h2 data-i18n="section_description">Description</h2>
       <p data-i18n="desc_text">
-        Beautiful 76 m2 duplex apartment on the 6th floor, completely renovated, with a south-facing terrace,
+        Beautiful 75 m2 apartment on the 6th floor, completely renovated, with a south-facing terrace,
         not overlooked. Beautiful views of Lake Tignes 2000 and the Grande Motte Glacier. Ideal location for skiers
         and very pleasant for non-skiers. Living room/kitchen, fully equipped. 3 bedrooms (2 double beds, 4 single beds).
       </p>
@@ -46,13 +46,15 @@
       <p data-i18n="space_text">
         Ski locker located in the ski room on the ground floor and closed at night.
       </p>
+      <h2 data-i18n="ski_space">Ski lockers</h2>
+      <p data-i18n="ski_text">
+        Ski locker located in the ski room on the ground floor and closed at night.
+      </p>
       <h2 data-i18n="section_access">Guest access</h2>
       <p data-i18n="access_text">
         Tip: book parking (P2 or P3) a few weeks before arrival (especially in high season) on tignes.net.
-      </p>
-      <p class="muted" data-i18n="amenities_text">
-        Amenities: TV, WiFi, kitchenette, microwave, fridge, freezer, coffee machine, kettle, toaster, hair dryer.
-      </p>
+      </p><a href="https://www.tignes.net" target="_blank" rel="noopener">Visit Tignes official website</a>
+      
     </section>
 
     <section class="card" id="photos">
@@ -145,6 +147,8 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
     <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button" data-i18n="lightbox_close" data-i18n-attr="aria-label">&times;</button>
+    <button class="lightbox__nav lightbox__prev" id="lightboxPrev" aria-label="Previous photo" type="button" data-i18n="lightbox_prev" data-i18n-attr="aria-label">&#10094;</button>
+    <button class="lightbox__nav lightbox__next" id="lightboxNext" aria-label="Next photo" type="button" data-i18n="lightbox_next" data-i18n-attr="aria-label">&#10095;</button>
     <img class="lightbox__img" id="lightboxImg" alt="">
   </div>
 

@@ -3,39 +3,91 @@
   const lightbox = document.getElementById("lightbox");
   const img = document.getElementById("lightboxImg");
   const closeBtn = document.getElementById("lightboxClose");
+  const prevBtn = document.getElementById("lightboxPrev");
+  const nextBtn = document.getElementById("lightboxNext");
+  const galleryImages = Array.from(document.querySelectorAll(".gallery img"));
+  let currentIndex = -1;
 
   if (lightbox && img && closeBtn) {
-    function openLightbox(src, alt) {
-      img.src = src;
-      img.alt = alt || "";
+    function showImage(index) {
+      if (!galleryImages.length) return;
+      const total = galleryImages.length;
+      currentIndex = (index + total) % total;
+      const target = galleryImages[currentIndex];
+      img.src = target.currentSrc || target.src;
+      img.alt = target.alt || "";
+    }
+
+    function openLightbox(index) {
       lightbox.classList.add("is-open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      showImage(index);
     }
 
     function closeLightbox() {
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
       img.src = "";
+      currentIndex = -1;
       document.body.style.overflow = "";
     }
 
-    document.querySelectorAll(".gallery img").forEach((el) => {
+    function showNext() {
+      if (!galleryImages.length) return;
+      showImage(currentIndex + 1);
+    }
+
+    function showPrev() {
+      if (!galleryImages.length) return;
+      showImage(currentIndex - 1);
+    }
+
+    if (galleryImages.length < 2) {
+      if (prevBtn) prevBtn.hidden = true;
+      if (nextBtn) nextBtn.hidden = true;
+    }
+
+    galleryImages.forEach((el, index) => {
       el.style.cursor = "zoom-in";
       el.addEventListener("click", (event) => {
         event.preventDefault();
-        openLightbox(el.currentSrc || el.src, el.alt);
+        openLightbox(index);
       });
     });
 
     img.addEventListener("click", closeLightbox);
     closeBtn.addEventListener("click", closeLightbox);
+    if (prevBtn) {
+      prevBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showPrev();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showNext();
+      });
+    }
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") {
+        closeLightbox();
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        showNext();
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        showPrev();
+      }
     });
   } else {
     console.warn("Lightbox: missing HTML elements (#lightbox, #lightboxImg, #lightboxClose)");
@@ -46,25 +98,26 @@
       title: "Apartment for rent - Tignes le Lac",
       meta_description: "Apartment for rent in Tignes le Lac - photos, amenities, location, contact.",
       hero_title: "Tignes le Lac",
-      hero_subtitle: "3-bedroom / 70 m2 - Bright - Ski-in/ski-out - Sunday to Sunday",
+      hero_subtitle: "Dual-aspect apartment - 3 bedrooms - sleeps 8",
       action_photos: "View photos",
       action_contact: "Contact",
       section_info: "Key info",
       label_area: "Area",
-      label_rooms: "Rooms",
-      label_furnished: "Furnished",
-      label_rent: "Rent",
-      label_utilities: "Utilities",
-      label_availability: "Availability",
-      value_yes: "Yes",
-      value_now: "Now",
+      label_rooms: "Bedrooms",
+      label_furnished: "Sleeps",
+      places: "8",
+      label_rent: "Bathrooms / WC",
+      outside: "Terrace",
+      price: "Rental price",
+      value_price: "On request",
       section_description: "Description",
-      desc_text: "Beautiful 76 m2 duplex apartment on the 6th floor, completely renovated, with a south-facing terrace, not overlooked. Beautiful views of Lake Tignes 2000 and the Grande Motte Glacier. Ideal location for skiers and very pleasant for non-skiers. Living room/kitchen, fully equipped. 3 bedrooms (2 double beds, 4 single beds).",
-      section_space: "The space",
-      space_text: "Ski locker located in the ski room on the ground floor and closed at night.",
-      section_access: "Guest access",
-      access_text: "Tip: book parking (P2 or P3) a few weeks before arrival (especially in high season) on tignes.net.",
-      amenities_text: "Amenities: TV, WiFi, kitchenette, microwave, fridge, freezer, coffee machine, kettle, toaster, hair dryer.",
+      desc_text: "Beautiful 75 m2 apartment on the 6th floor, fully renovated, with a south-facing terrace and no overlooking. Beautiful views of Lake Tignes 2100 and the Grande Motte Glacier. Ideal for skiers and very pleasant for non-skiers. Living room/dining room. Open-plan kitchen, fully equipped. 3 bedrooms (2 double beds, 4 single beds). 2 bathrooms and 2 WCs.",
+      section_space: "Amenities",
+      space_text: "TV, WiFi, microwave, dishwasher, induction cooktop, Nespresso machine, coffee maker, kettle, toaster, fondue and raclette sets, hair dryer...",
+      ski_space: "Ski locker",
+      ski_text: "Secure ski locker on the ground floor, closed at night.",
+      section_access: "Parking",
+      access_text: "P3 parking, Tignes le Lac (recommended).",
       section_photos: "Photos",
       photos_living: "Living room",
       photos_kitchen: "Kitchen",
@@ -73,7 +126,7 @@
       photos_view: "View",
       alt_living_1: "Living room 1",
       alt_living_2: "Living room 2",
-      alt_living_3: "Living room 3",
+      alt_living_4: "Living room 4",
       alt_kitchen_1: "Kitchen 1",
       alt_kitchen_2: "Kitchen 2",
       alt_kitchen_3: "Kitchen 3",
@@ -90,37 +143,40 @@
       section_location: "Location",
       location_text: "Le Lac, Tignes. 1 min from the slopes, close to ski rental.",
       section_contact: "Contact",
-      contact_line: "For reservations contact:",
+      contact_line: "For reservations:",
       contact_email: "Email",
       contact_phone: "Phone",
       footer_text: "Apartment for rent",
       lightbox_close: "Close",
+      lightbox_prev: "Previous photo",
+      lightbox_next: "Next photo",
       lang_toggle_label: "Switch to French",
-      link:"See all webcams on tignes.net"
+      link: "See all webcams on tignes.net"
     },
     fr: {
       title: "Appartement \u00e0 louer - Tignes le Lac",
       meta_description: "Appartement \u00e0 louer \u00e0 Tignes le Lac - photos, \u00e9quipements, localisation, contact.",
       hero_title: "Tignes le Lac",
-      hero_subtitle: "T4 / 70 m2 - Lumineux - Au pied des pistes - Dimanche au dimanche",
-      action_photos: "Voir les photos",
+      hero_subtitle: "Appartement traversant - 3 chambres - 8 personnes",
+      action_photos: "Photos",
       action_contact: "Contacter",
-      section_info: "Infos cl\u00e9s",
+      section_info: "Infos",
       label_area: "Surface",
-      label_rooms: "Pi\u00e8ces",
-      label_furnished: "Meubl\u00e9",
-      label_rent: "Loyer",
-      label_utilities: "Charges",
-      label_availability: "Disponibilit\u00e9",
-      value_yes: "Oui",
-      value_now: "Disponible",
+      label_rooms: "Chambres",
+      label_furnished: "couchages",
+      places: "8",
+      label_rent: "Salles d'eau - WC",
+      outside: "Terasse",
+      price: "prix loacation",
+      value_price: "sur demande",
       section_description: "Description",
-      desc_text: "Bel appartement duplex de 76 m2 au 6e \u00e9tage, enti\u00e8rement r\u00e9nov\u00e9, avec terrasse plein sud, sans vis-\u00e0-vis. Belle vue sur le lac de Tignes 2000 et le glacier de la Grande Motte. Emplacement id\u00e9al pour les skieurs et tr\u00e8s agr\u00e9able pour les non-skieurs. S\u00e9jour/cuisine, enti\u00e8rement \u00e9quip\u00e9. 3 chambres (2 lits doubles, 4 lits simples).",
-      section_space: "Le logement",
-      space_text: "Casier \u00e0 skis situ\u00e9 dans le local \u00e0 skis au rez-de-chauss\u00e9e, ferm\u00e9 la nuit.",
-      section_access: "Acc\u00e8s voyageurs",
-      access_text: "Conseil : r\u00e9server le parking (P2 ou P3) quelques semaines avant l'arriv\u00e9e (surtout en haute saison) sur tignes.net.",
-      amenities_text: "\u00c9quipements : TV, WiFi, kitchenette, micro-ondes, frigo, cong\u00e9lateur, machine \u00e0 caf\u00e9, bouilloire, grille-pain, s\u00e8che-cheveux.",
+      desc_text: "Bel appartement de 75 m2 au 6e \u00e9tage, enti\u00e8rement r\u00e9nov\u00e9, avec terrasse plein sud, sans vis-\u00e0-vis. Belle vue sur le lac de Tignes 2100 et le glacier de la Grande Motte. Emplacement id\u00e9al pour les skieurs et tr\u00e8s agr\u00e9able pour les non-skieurs. S\u00e9jour/salle a manger. Cuisine ouverte, enti\u00e8rement \u00e9quip\u00e9. 3 chambres (2 lits doubles, 4 lits simples). 2 salles de bain et 2 WC",
+      section_space: "Equipements",
+      space_text: "TV, WiFi, micro-ondes, lave vaisselle, plaques \u00e0 induction, machine Nespresso, percolateur, bouilloire, grille-pain, sets \u00e0 fondue et raquelette, s\u00e8che-cheveux...",
+      ski_space: "Local \u00e0 skis",
+      ski_text: "Local \u00e0 skis securis\u00e9 au rez-de-chauss\u00e9e et ferm\u00e9 la nuit.",
+      section_access: "Parking",
+      access_text: "Parking P3 Tignes le Lac (recommand\u00e9)",
       section_photos: "Photos",
       photos_living: "Salon",
       photos_kitchen: "Cuisine",
@@ -129,7 +185,7 @@
       photos_view: "Vue",
       alt_living_1: "Salon 1",
       alt_living_2: "Salon 2",
-      alt_living_3: "Salon 3",
+      alt_living_4: "Salon 4",
       alt_kitchen_1: "Cuisine 1",
       alt_kitchen_2: "Cuisine 2",
       alt_kitchen_3: "Cuisine 3",
@@ -151,8 +207,10 @@
       contact_phone: "T\u00e9l\u00e9phone",
       footer_text: "Appartement \u00e0 louer",
       lightbox_close: "Fermer",
+      lightbox_prev: "Photo pr\u00e9c\u00e9dente",
+      lightbox_next: "Photo suivante",
       lang_toggle_label: "Passer en anglais",
-      link:"Voir toutes les webcams sur tignes.net"
+      link: "Voir toutes les webcams sur tignes.net"
     }
   };
 
@@ -210,4 +268,3 @@
     });
   }
 })();
-
