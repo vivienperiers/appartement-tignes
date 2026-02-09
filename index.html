@@ -1,95 +1,97 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apartment for rent - Tignes le Lac</title>
-  <meta name="description" content="Apartment for rent in Tignes le Lac - photos, amenities, location, contact." />
+  <title>Appartement à louer - Tignes le Lac</title>
+  <meta name="description" content="Appartement à louer à Tignes le Lac - photos, équipements, localisation, contact." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header class="hero">
     <div class="hero__content">
-      <h1 data-i18n="hero_title">Tignes le Lac</h1>
-      <p class="hero__subtitle" data-i18n="hero_subtitle">3-bedroom / 70 m2 - Bright - Ski-in/ski-out - Sunday to Sunday</p>
+      <h1>Tignes le Lac</h1>
+      <p class="hero__subtitle">Appartement traversant - 3 chambres - 8 personnes</p>
       <div class="hero__actions">
-        <a class="btn" href="#photos" data-i18n="action_photos">View photos</a>
-        <a class="btn btn--secondary" href="#contact" data-i18n="action_contact">Contact</a>
-        <a class="btn btn--secondary" href="#webcam" >WebCam</a>
-        <a class="btn btn--secondary btn--lang" id="langToggle" data-i18n="Switch to French">FR</a>
+        <a class="btn" href="#photos">Photos</a>
+        <a class="btn btn--secondary" href="#contact">Contact</a>
+        <a class="btn btn--secondary" href="#webcam">Webcam</a>
       </div>
     </div>
   </header>
 
   <main class="container">
     <section class="card" id="info">
-      <h2 data-i18n="section_info">Key info</h2>
+      <h2>Infos</h2>
       <ul class="grid">
-        <li><strong data-i18n="label_area">Area</strong><span>75 m2</span></li>
-        <li><strong data-i18n="label_rooms">Bedrooms</strong><span>3</span></li>
-        <li><strong data-i18n="label_furnished">Furnished</strong><span data-i18n="places">8</span></li>
-        <li><strong data-i18n="label_rent">bathroom</strong><span>2</span></li>
-        <li><strong data-i18n="outside">outside</strong><span>8 m2</span></li>
-        <li><strong data-i18n="price">Availability</strong><span data-i18n="value_price">Now</span></li>
+        <li><strong>Surface</strong><span>75 m2</span></li>
+        <li><strong>Chambres</strong><span>3</span></li>
+        <li><strong>Couchages</strong><span>8</span></li>
+        <li><strong>Salles d'eau - WC</strong><span>2</span></li>
+        <li><strong>Terrasse</strong><span>Plein Sud - Vue sur Lac</span></li>
+        <li><strong>Prix de location</strong><span>Sur demande</span></li>
       </ul>
     </section>
 
     <section class="card" id="description">
-      <h2 data-i18n="section_description">Description</h2>
-      <p data-i18n="desc_text">
-        Beautiful 75 m2 apartment on the 6th floor, completely renovated, with a south-facing terrace,
-        not overlooked. Beautiful views of Lake Tignes 2000 and the Grande Motte Glacier. Ideal location for skiers
-        and very pleasant for non-skiers. Living room/kitchen, fully equipped. 3 bedrooms (2 double beds, 4 single beds).
+      <h2>Description</h2>
+      <p>
+        Bel appartement de 75 m2 au 6e étage, entièrement rénové, avec terrasse plein sud,
+        sans vis-à-vis. Superbe vue sur le Lac de Tignes 2100 et le glacier de la Grande Motte.
+        Emplacement idéal pour les skieurs et très agréable pour les non-skieurs.
+        Séjour/Salle à manger. Cuisine ouverte, entièrement équipée.
+        3 chambres (2 lits doubles, 4 lits simples). 2 salles de bain et 2 WC.
       </p>
-      <h2 data-i18n="section_space">The space</h2>
-      <p data-i18n="space_text">
-        Ski locker located in the ski room on the ground floor and closed at night.
+      <h2>Équipements</h2>
+      <p>
+        TV, WiFi, micro-ondes, lave-vaisselle, plaques à induction, machine Nespresso,
+        percolateur, bouilloire, grille-pain, sets à fondue et raclette, sèche-cheveux...
       </p>
-      <h2 data-i18n="ski_space">Ski lockers</h2>
-      <p data-i18n="ski_text">
-        Ski locker located in the ski room on the ground floor and closed at night.
+      <h2>Local à skis</h2>
+      <p>
+        Local à skis sécurisé au rez-de-chaussée et fermé la nuit.
       </p>
-      <h2 data-i18n="section_access">Guest access</h2>
-      <p data-i18n="access_text">
-        Tip: book parking (P2 or P3) a few weeks before arrival (especially in high season) on tignes.net.
-      </p><a href="https://www.tignes.net" target="_blank" rel="noopener">Visit Tignes official website</a>
-      
+      <h2>Parking</h2>
+      <p>
+        Parking P3 Tignes le Lac à 1 min à pied (payant, réservation recommandée en haute saison).
+      </p>
+      <a class="btn btn--secondary" href="https://www.tignes.net" target="_blank" rel="noopener">Site officiel de Tignes</a>
     </section>
 
     <section class="card" id="photos">
-      <h2 data-i18n="section_photos">Photos</h2>
-      <h3 data-i18n="photos_living">Living room</h3>
+      <h2>Photos</h2>
+      <h3>Salon</h3>
       <div class="gallery">
-        <!-- Put your photos in a "photos/" folder -->
-        <img src="photos/01-salon-n.jpeg" alt="Living room 1" loading="lazy" data-i18n="alt_living_1" data-i18n-attr="alt">
-        <img src="photos/02-salon-n.jpeg" alt="Living room 2" loading="lazy" data-i18n="alt_living_2" data-i18n-attr="alt">
-        <img src="photos/04-salon-n.jpeg" alt="Living room 4" loading="lazy" data-i18n="alt_living_4" data-i18n-attr="alt">
+        <!-- Placez vos photos dans le dossier "photos/" -->
+        <img src="photos/01-salon-n.jpeg" alt="Salon 1" loading="lazy">
+        <img src="photos/02-salon-n.jpeg" alt="Salon 2" loading="lazy">
+        <img src="photos/04-salon-n.jpeg" alt="Salon 4" loading="lazy">
       </div>
-      <h3 data-i18n="photos_kitchen">Kitchen</h3>
+      <h3>Cuisine</h3>
       <div class="gallery">
-        <img src="photos/03-salon-n.jpeg" alt="Kitchen 1" loading="lazy" data-i18n="alt_kitchen_1" data-i18n-attr="alt">
-        <img src="photos/cuisine2.avif" alt="Kitchen 2" loading="lazy" data-i18n="alt_kitchen_2" data-i18n-attr="alt">
-        <img src="photos/cuisine3.avif" alt="Kitchen 3" loading="lazy" data-i18n="alt_kitchen_3" data-i18n-attr="alt">
+        <img src="photos/03-salon-n.jpeg" alt="Cuisine 1" loading="lazy">
+        <img src="photos/cuisine2.avif" alt="Cuisine 2" loading="lazy">
+        <img src="photos/cuisine3.avif" alt="Cuisine 3" loading="lazy">
       </div>
-      <h3 data-i18n="photos_bedroom">Bedroom</h3>
+      <h3>Chambre</h3>
       <div class="gallery">
-        <img src="photos/chambre1.avif" alt="Bedroom 1" loading="lazy" data-i18n="alt_bedroom_1" data-i18n-attr="alt">
-        <img src="photos/chambre2.avif" alt="Bedroom 2" loading="lazy" data-i18n="alt_bedroom_2" data-i18n-attr="alt">
-        <img src="photos/chambre3.avif" alt="Bedroom 3" loading="lazy" data-i18n="alt_bedroom_3" data-i18n-attr="alt">
+        <img src="photos/chambre1.avif" alt="Chambre 1" loading="lazy">
+        <img src="photos/chambre2.avif" alt="Chambre 2" loading="lazy">
+        <img src="photos/chambre3.avif" alt="Chambre 3" loading="lazy">
       </div>
-      <h3 data-i18n="photos_bathroom">Bathroom</h3>
+      <h3>Salle de bain</h3>
       <div class="gallery">
-        <img src="photos/sdb1.avif" alt="Bathroom 1" loading="lazy" data-i18n="alt_bathroom_1" data-i18n-attr="alt">
-        <img src="photos/sdb2.avif" alt="Bathroom 2" loading="lazy" data-i18n="alt_bathroom_2" data-i18n-attr="alt">
-        <img src="photos/sdb3.avif" alt="Bathroom 3" loading="lazy" data-i18n="alt_bathroom_3" data-i18n-attr="alt">
+        <img src="photos/sdb1.avif" alt="Salle de bain 1" loading="lazy">
+        <img src="photos/sdb2.avif" alt="Salle de bain 2" loading="lazy">
+        <img src="photos/sdb3.avif" alt="Salle de bain 3" loading="lazy">
       </div>
-      <h3 data-i18n="photos_view">View</h3>
+      <h3>Vue</h3>
       <div class="gallery">
-        <img src="photos/vue1.avif" alt="View 1" loading="lazy" data-i18n="alt_view_1" data-i18n-attr="alt">
-        <img src="photos/vue2.avif" alt="View 2" loading="lazy" data-i18n="alt_view_2" data-i18n-attr="alt">
-        <img src="photos/vue3.avif" alt="View 3" loading="lazy" data-i18n="alt_view_3" data-i18n-attr="alt">
-        <img src="photos/pistes1.avif" alt="Ski slopes 1" loading="lazy" data-i18n="alt_slopes_1" data-i18n-attr="alt">
+        <img src="photos/vue1.avif" alt="Vue 1" loading="lazy">
+        <img src="photos/vue2.avif" alt="Vue 2" loading="lazy">
+        <img src="photos/vue3.avif" alt="Vue 3" loading="lazy">
+        <img src="photos/pistes1.avif" alt="Pistes 1" loading="lazy">
       </div>
     </section>
 
@@ -108,17 +110,16 @@
     <p class="muted">
         Source: Tignes / Roundshot.
     </p>
-    <a class="btn btn--secondary" href="https://www.tignes.net/webcams" target="_blank" rel="noopener" data-i18n="link">
+    <a class="btn btn--secondary" href="https://www.tignes.net/webcams" target="_blank" rel="noopener">
         Voir toutes les webcams sur tignes.net
     </a>
     </section>
 
 
     <section class="card" id="location">
-      <h2 data-i18n="section_location">Location</h2>
-      <p data-i18n="location_text">Le Lac, Tignes. 1min from the slopes, close to ski rental.</p>
+      <h2>Localisation</h2>
 
-      <!-- Google Maps embed: click "Share" -> "Embed a map" -->
+      <!-- Intégration Google Maps : cliquez sur "Partager" -> "Intégrer une carte" -->
       <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d699.5126054036714!2d6.904516655110895!3d45.46878819829432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4789735503c9759b%3A0x1eae2f47b892fab4!2sMountain%20Attitude%20-%20BK%20Sports%20location%20ski%20Tignes%20le%20Lac!5e0!3m2!1sfr!2sbe!4v1767033654133!5m2!1sfr!2sbe" 
             width="600" 
@@ -132,28 +133,28 @@
     </section>
 
     <section class="card" id="contact">
-      <h2 data-i18n="section_contact">Contact</h2>
-      <p><span data-i18n="contact_line">For reservations contact:</span> <strong>Marie-Pierre</strong></p>
+      <h2>Contact</h2>
+      <p><span>Pour les renseignements et réservations contacter:</span> <strong>Marie-Pierre</strong></p>
 
       <div class="contact">
-        <a class="btn" href="mailto:mpperiers@yahoo.fr?subject=Apartment%20viewing" data-i18n="contact_email">Email</a>
-        <a class="btn btn--secondary" href="tel:+32479806860" data-i18n="contact_phone">Phone</a>
+        <a class="btn" href="mailto:mpperiers@yahoo.fr?subject=Demande%20de%20location">Email</a>
+        <a class="btn btn--secondary" href="tel:+32479806860">Téléphone</a>
         <a class="btn btn--secondary" href="https://wa.me/32479806860">WhatsApp</a>
       </div>
 
     </section>
   </main>
 
-  <!-- Lightbox -->
+  <!-- Visionneuse -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
-    <button class="lightbox__close" id="lightboxClose" aria-label="Close" type="button" data-i18n="lightbox_close" data-i18n-attr="aria-label">&times;</button>
-    <button class="lightbox__nav lightbox__prev" id="lightboxPrev" aria-label="Previous photo" type="button" data-i18n="lightbox_prev" data-i18n-attr="aria-label">&#10094;</button>
-    <button class="lightbox__nav lightbox__next" id="lightboxNext" aria-label="Next photo" type="button" data-i18n="lightbox_next" data-i18n-attr="aria-label">&#10095;</button>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fermer" type="button">&times;</button>
+    <button class="lightbox__nav lightbox__prev" id="lightboxPrev" aria-label="Photo précédente" type="button">&#10094;</button>
+    <button class="lightbox__nav lightbox__next" id="lightboxNext" aria-label="Photo suivante" type="button">&#10095;</button>
     <img class="lightbox__img" id="lightboxImg" alt="">
   </div>
 
   <footer class="footer">
-    <small>&copy; <span id="year"></span> - <span data-i18n="footer_text">Apartment for rent</span></small>
+    <small>&copy; <span id="year"></span> - Appartement à louer</small>
   </footer>
 
   <script>

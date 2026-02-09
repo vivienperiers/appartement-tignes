@@ -185,12 +185,6 @@ h3{
   box-shadow: 0 12px 24px rgba(42, 35, 31, 0.12);
   cursor: pointer;
 }
-.btn--lang{
-  min-width: 64px;
-  padding-left: 14px;
-  padding-right: 14px;
-}
-
 .hero__actions, .contact{ display:flex; gap:10px; flex-wrap:wrap; }
 
 .footer{
